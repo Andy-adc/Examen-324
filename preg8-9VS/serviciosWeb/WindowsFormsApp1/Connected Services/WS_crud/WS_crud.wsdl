@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="eliminarDatos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarDatosResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="insertarDatos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apellido" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="edad" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="coddep" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="telefono" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarDatosResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="actualizarDatos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apellido" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="edad" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="coddep" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="telefono" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="actualizarDatosResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="tablaDatos">
+        <s:complexType />
+      </s:element>
+      <s:element name="tablaDatosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tablaDatosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="eliminarDatosSoapIn">
+    <wsdl:part name="parameters" element="tns:eliminarDatos" />
+  </wsdl:message>
+  <wsdl:message name="eliminarDatosSoapOut">
+    <wsdl:part name="parameters" element="tns:eliminarDatosResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarDatosSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarDatos" />
+  </wsdl:message>
+  <wsdl:message name="insertarDatosSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarDatosResponse" />
+  </wsdl:message>
+  <wsdl:message name="actualizarDatosSoapIn">
+    <wsdl:part name="parameters" element="tns:actualizarDatos" />
+  </wsdl:message>
+  <wsdl:message name="actualizarDatosSoapOut">
+    <wsdl:part name="parameters" element="tns:actualizarDatosResponse" />
+  </wsdl:message>
+  <wsdl:message name="tablaDatosSoapIn">
+    <wsdl:part name="parameters" element="tns:tablaDatos" />
+  </wsdl:message>
+  <wsdl:message name="tablaDatosSoapOut">
+    <wsdl:part name="parameters" element="tns:tablaDatosResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WS_crudSoap">
+    <wsdl:operation name="eliminarDatos">
+      <wsdl:input message="tns:eliminarDatosSoapIn" />
+      <wsdl:output message="tns:eliminarDatosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarDatos">
+      <wsdl:input message="tns:insertarDatosSoapIn" />
+      <wsdl:output message="tns:insertarDatosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarDatos">
+      <wsdl:input message="tns:actualizarDatosSoapIn" />
+      <wsdl:output message="tns:actualizarDatosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="tablaDatos">
+      <wsdl:input message="tns:tablaDatosSoapIn" />
+      <wsdl:output message="tns:tablaDatosSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WS_crudSoap" type="tns:WS_crudSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="eliminarDatos">
+      <soap:operation soapAction="http://tempuri.org/eliminarDatos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarDatos">
+      <soap:operation soapAction="http://tempuri.org/insertarDatos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarDatos">
+      <soap:operation soapAction="http://tempuri.org/actualizarDatos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tablaDatos">
+      <soap:operation soapAction="http://tempuri.org/tablaDatos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WS_crudSoap12" type="tns:WS_crudSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="eliminarDatos">
+      <soap12:operation soapAction="http://tempuri.org/eliminarDatos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarDatos">
+      <soap12:operation soapAction="http://tempuri.org/insertarDatos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarDatos">
+      <soap12:operation soapAction="http://tempuri.org/actualizarDatos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tablaDatos">
+      <soap12:operation soapAction="http://tempuri.org/tablaDatos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WS_crud">
+    <wsdl:port name="WS_crudSoap" binding="tns:WS_crudSoap">
+      <soap:address location="http://localhost:49895/WS_crud.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WS_crudSoap12" binding="tns:WS_crudSoap12">
+      <soap12:address location="http://localhost:49895/WS_crud.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
