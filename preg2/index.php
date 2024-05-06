@@ -30,3 +30,7 @@ while ($fila=mysqli_fetch_array($resultado)){
 }
 ?>
 </table>
+
+<form action="anadirPersona.php">
+	<input type="submit" name="anadir" value="Agregar persona">
+</form>
